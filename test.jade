@@ -1,0 +1,78 @@
+doctype html
+html(lang="en")
+  head
+    meta(charset='UTF-8')
+    title 引导页面
+    link(rel='stylesheet' type='text/css' href='guide.css')
+    link(rel='stylesheet' href='style.min.css')
+    script(src='jquery-1.9.1.js')
+    script(src='jquery.min.js')
+    script(src='jstree.min.js')
+
+  body
+    header
+      h1 引导页面
+        em Beta0.1
+    article
+      section.top
+        .top-info
+          span 虚拟机总数：
+            span.total 10
+        - var array = ["192.168.0.0","192.168.0.1","192.168.0.2","192.168.0.3","192.168.0.4","192.168.0.5","192.168.0.6","192.168.0.7","192.168.0.8"]
+        ul.computer
+          - for ( var i = 0; i < array.length; i++) { 
+            li.computer-list #{array[i]}
+          - }
+        br
+      //启动服务
+      section.center
+        .start-main-node
+          select
+            option 1
+            option 2
+            option 3
+            option 4
+            option 5
+            option 6
+          button#start-main-node.guide-btn
+            span 启动主节点
+            img(src='img/installed.png')
+        .deploy-soft
+          button#deploy-soft.guide-btn
+            span 部署软件中心
+            img(src='img/loading.png')
+        .install-extent
+          button#install-extent.guide-btn
+            span 安装应用扩展服务
+            img(src='img/cross.png')
+      //输入JSON
+      section.bottom
+        .left
+          textarea(placeholder='请输入JSON参数')
+          br
+          button.guide-btn#execute
+            span 执行
+            img(src='../img/installed.png')
+        .right
+          #container
+            //-两个都是应用1
+            //- mixin list
+            //-   ul
+            //-     li 应用1
+            //-       ul.child
+            //-         li 实例一
+            //-         li 实例二
+            //- +list
+            //- +list
+            ul
+              li 应用1
+                ul.child
+                  li 实例一
+                  li 实例二
+            ul
+              li 应用2
+                ul.child
+                  li 实例一
+                  li 实例二
+    footer @copyright 武汉大学
+    script(type='text/javascript',src='guide.js')
